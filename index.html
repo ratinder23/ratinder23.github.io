@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head> 
+	<head>
 		<meta charset="utf-8">
-		
+		<img src = "Unemployment.png>"
+
 		<style type="text/css">
 		body {
 			background-color: lightblue;
-		
+
 		}
-		
-		
+
+
 			h1 {
 				text-align: center;
 				font-family: sans-serif;
@@ -35,7 +36,7 @@
 			.yaxis path,
 			.yaxis line {
 				fill: none;
-				
+
 				shape-rendering: crispEdges;
 			}
 
@@ -50,29 +51,29 @@
 				stroke: none;
 			}
 
-			div.tooltip {   
-  				position: absolute;           
- 				text-align: center;           
-				background: lightgreen;        
+			div.tooltip {
+  				position: absolute;
+ 				text-align: center;
+				background: lightgreen;
   				font: 12px sans-serif;
 				font-weight: bold;
-				border: 0px;      
-  				border-radius: 8px;           
-  				pointer-events: none;         
+				border: 0px;
+  				border-radius: 8px;
+  				pointer-events: none;
 			}
 		</style>
-		
+
 		<script type="text/javascript" src="d3/d3.js"></script>
 
-		
+
 
 	</head>
 	<body>
-		
+
 		 <script type="text/javascript">
 
 
-			var stateData = 
+			var stateData =
 [{"AREA":11,"ST":"DC","STATE":"District of Columbia","OCC_CODE":"11-0000","OCC_TITLE":"Management Occupations","OCC_GROUP":"major","TOT_EMP":75.830,"EMP_PRSE":0.9,"JOBS_1000":113.881,"LOC_Q":2.31,"H_MEAN":63.40,"A_MEAN":131.860,"MEAN_PRSE":1.5,"H_PCT10":33.62,"H_PCT25":49.11,"H_MEDIAN":61.09,"H_PCT75":73.39,"H_PCT90":null,"A_PCT10":69.940,"A_PCT25":102.140,"A_MEDIAN":127.070,"A_PCT75":152.650,"A_PCT90":null,"ANNUAL":null,"HOURLY":null},
 {"AREA":34,"ST":"NJ","STATE":"New Jersey","OCC_CODE":"11-0000","OCC_TITLE":"Management Occupations","OCC_GROUP":"major","TOT_EMP":199.860,"EMP_PRSE":1.0,"JOBS_1000":52.304,"LOC_Q":1.06,"H_MEAN":64.97,"A_MEAN":135.130,"MEAN_PRSE":0.5,"H_PCT10":32.49,"H_PCT25":43.83,"H_MEDIAN":58.21,"H_PCT75":79.48,"H_PCT90":null,"A_PCT10":67.570,"A_PCT25":91.170,"A_MEDIAN":121.080,"A_PCT75":165.320,"A_PCT90":null,"ANNUAL":null,"HOURLY":null},
 {"AREA":10,"ST":"DE","STATE":"Delaware","OCC_CODE":"11-0000","OCC_TITLE":"Management Occupations","OCC_GROUP":"major","TOT_EMP":17.870,"EMP_PRSE":3.8,"JOBS_1000":43.370,"LOC_Q":0.88,"H_MEAN":64.84,"A_MEAN":134.870,"MEAN_PRSE":2.0,"H_PCT10":32.12,"H_PCT25":42.90,"H_MEDIAN":57.24,"H_PCT75":79.98,"H_PCT90":null,"A_PCT10":66.810,"A_PCT25":89.240,"A_MEDIAN":119.060,"A_PCT75":166.360,"A_PCT90":null,"ANNUAL":null,"HOURLY":null},
@@ -1357,7 +1358,7 @@ function visualizeIt() {
 				.attr("y", function(d) {
 					return (yScale(d) + padding/2 -10);
 				})
-				.attr("height", yScale.rangeBand()) 
+				.attr("height", yScale.rangeBand())
 				.attr("width", w)
 				//.attr("fill", "blue")
 				.attr("opacity", function (d, i) {
@@ -1370,7 +1371,7 @@ function visualizeIt() {
 		            	var rect = d3.select(this);
 		            	rect.attr("fill", "blue");
 		            	if (rect.attr("opacity") == 0) {
-		            		rect.attr("opacity", .15); 
+		            		rect.attr("opacity", .15);
 		            		}
 			            })
 				.on("mouseout", function() {
@@ -1383,8 +1384,8 @@ function visualizeIt() {
 
 
 			//add div for tooltip
-           	var div = d3.select("body").append("div")   
-    			.attr("class", "tooltip")               
+           	var div = d3.select("body").append("div")
+    			.attr("class", "tooltip")
     			.style("opacity", 0);
 
 			//add axes
@@ -1411,31 +1412,31 @@ function visualizeIt() {
            		})
            		.attr("r", 3)
            		.on("mouseover", function(d) {     //tooltip
-           			
+
            			occ_code = d.OCC_CODE;
            			occ_title = d.OCC_TITLE;
            			update();
-            		div.transition()        
-                		.duration(200)      
+            		div.transition()
+                		.duration(200)
                 		.attr("width", d.OCC_TITLE.length * 4)
                 		.attr("height", d.OCC_TITLE.length*4)
                 		.attr("padding", 2)
                 		.style("opacity", .9)
-                		.style("fill", "lightsteelblue");      
+                		.style("fill", "lightsteelblue");
             		div.html(d.OCC_TITLE + "<br/> Avg Annual Salary: $" + d.A_MEAN +"K")
-                	.style("left", (d3.event.pageX) + "px")     
-                	.style("top", (d3.event.pageY - 28) + "px");   
-            	})                  
-        		.on("mouseout", function(d) {       
-            		div.transition()        
-                		.duration(500)      
+                	.style("left", (d3.event.pageX) + "px")
+                	.style("top", (d3.event.pageY - 28) + "px");
+            	})
+        		.on("mouseout", function(d) {
+            		div.transition()
+                		.duration(500)
                 		.style("opacity", 0)
                 		.style("fill", "black")
-                		.style("stroke", "none");  
+                		.style("stroke", "none");
         			});
 
            	//add labels to axes
-           	svg.append("text")     
+           	svg.append("text")
         		.attr("x", w/2 )
         		.attr("y",  h-2 )
         		.style("text-anchor", "middle")
@@ -1446,16 +1447,16 @@ function visualizeIt() {
 
 }
 		</script>
-		<script> 
+		<script>
 
-		</script>	
+		</script>
 
 		<img src = "Unemployment.png">
- 
-
- 
 
 
-		 <!--<input id="salary selector" type="range" min=0 max= x=1500 y=500/> -->	
+
+
+
+		 <!--<input id="salary selector" type="range" min=0 max= x=1500 y=500/> -->
 	</body>
 </html>
