@@ -2,7 +2,7 @@
 <html lang="en">
 	<head> 
 		<meta charset="utf-8">
-		<title>Visualizing Salary by State</title>
+		
 		<style type="text/css">
 		body {
 			background-color: lightblue;
@@ -61,20 +61,14 @@
   				pointer-events: none;         
 			}
 		</style>
-		<h4> Authors: Pawan Khatri (PK), Bikramjeet Bhele, Ratinder Bhandal </h4>
 		
-		<h1 anchor=middle>Visualizing Salary by State</h1>
-		<h3>Data from BLS National and State Occupational Employment and Wage Estimates (2015) </h3>
 		<script type="text/javascript" src="d3/d3.js"></script>
 
 		
 
 	</head>
 	<body>
-		<h4> We chose to use wage data from the Bureau of Labor Statistics. Specifically, we grabbed two spreadsheets from the  2015 Occupational Employment and Wage Estimates-- one giving data on a national level and one on a state level. Both datasets provide information for 22 different major categories of occupations.
-
-				Each major category contains several detailed categories, or more specific job titles, and data about numbers surveyed and salaries for each. </h4>
-		<p>Current Selection: None</p>
+		
 		 <script type="text/javascript">
 
 
@@ -1456,15 +1450,10 @@ function visualizeIt() {
 
 		</script>	
 
-		<h4> We decided to choose a whole new data set because we wanted to start off from scratch and already had an idea for our interactive design. We are extremely interested in what type of jobs pay the most money and which careers pay the least money. We designed our visualization to have three parts: the main scatterplot, a slider bar to dynamically control the range of salaries displayed, and a more detailed box plot on the right hand side. The main scatterplot shows average salary for each main career category for each state.
-Only career categories with salaries between the min and max of the slider bar should be plotted on the main scatterplot. The x-axis will scale with the slider bar, and points will disappear and reappear appropriately when the slider bar is adjusted.
-
-  When a member selects a point (an average salary for one career category in a certain state), the detailed box plot will display median and quartile information for each specific job title within that category. We intended this detailed box plot to show national data, although perhaps in future iterations we could have a drop down menu from which a viewer can select national or state data for the detailed box plot. That is why for this project we decided to come up with a visualization for just state data.
- </h4>	
+		
  
 
- <h4>   The work was split pretty evenly among the team members. Bikram came up with the scatter plot idea and how to display the entire visualization. Ratinder came up with the overall look of the data visualization. For example, the size, color, and contrast used. Pawan did the report. We all helped out with the code for javascript. It roughly took 35 hours to develop our application. We wanted to perfect every aspect and make the visualization look appealing which also took the most time.
-</h4>
+ 
 
 
 		 <!--<input id="salary selector" type="range" min=0 max= x=1500 y=500/> -->	
